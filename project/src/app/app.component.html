@@ -25,6 +25,25 @@
 
   <hr />
 
-  <img [src]="poster">
+  <!-- <img [src]="poster" alt="Some picture" /> -->
 </div>
-<!-- <app-post></app-post> -->
+
+<hr />
+
+<app-post-form
+  (onAdd)="updatePostTest($event)"
+></app-post-form>
+
+<app-post
+  *ngFor="let p of postTest"
+  [post]="p"
+>
+  <small *ngIf="p.title.length < 5; else long">
+    Title has got really short amount of letters
+  </small>
+  <ng-template #long>
+    <small>
+      Title has normal length
+    </small>
+  </ng-template>
+</app-post>

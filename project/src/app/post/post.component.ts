@@ -1,4 +1,5 @@
-import {Component} from '@angular/core'
+import {Component, Input} from '@angular/core'
+import { Todo } from '../app.component';
 
 @Component({
     selector: 'app-post',
@@ -7,5 +8,7 @@ import {Component} from '@angular/core'
 })
 
 export class PostComponent {
+
+  @Input() post: Todo
 
 }
