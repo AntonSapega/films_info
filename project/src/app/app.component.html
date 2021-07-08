@@ -28,9 +28,9 @@
   <!-- <img [src]="poster" alt="Some picture" /> -->
 </div>
 
-<hr />
+<!-- <hr /> -->
 
-<app-post-form
+<!-- <app-post-form
   (onAdd)="updatePostTest($event)"
 ></app-post-form>
 
@@ -46,4 +46,21 @@
       Title has normal length
     </small>
   </ng-template>
-</app-post>
+</app-post> -->
+
+<section class="card">
+  <div class="form-control">
+    <input type="text" placeholder="Find by movie name" [(ngModel)]="searchingValue">
+  </div>
+  <div class="controls">
+    <button class="btn" (click)="search()">Find</button>
+  </div>
+</section>
+
+<div *ngIf="movies !== null">
+  <h3>Title: {{movies.title}}</h3>
+  <p>Description: {{movies.overview}}</p>
+  <p>Average vote: {{movies.voteAverage}}</p>
+  <hr />
+  <img [src]="movies.posterPath" [alt]="movies.title" />
+</div>
