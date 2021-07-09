@@ -5,14 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { SearchBoxComponent } from './search-box/search-box.component';
 import { PostComponent } from './post/post.component';
-import { PostFormComponent } from './post-form/post-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostComponent,
-    PostFormComponent,
+    HeaderComponent,
+    SearchBoxComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

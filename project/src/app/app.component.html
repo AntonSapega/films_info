@@ -1,66 +1,20 @@
-<div class="container">
-  <h1>Angular HttpClient</h1>
+<app-header></app-header>
 
-  <section class="card">
-    <div class="form-control">
-      <input type="text" placeholder="Name">
+<app-search-box (responseListener)="prepareDescription($event)"></app-search-box>
+
+<section class="post" *ngIf="title">
+  <img class="post__img" [src]="poster" alt="Poster image"/>
+  <article class="post__description">
+    <h2 class="post__title">{{title | uppercase}}</h2>
+    <h3>Rating: {{rating}}</h3>
+    <p>Release Date: {{releaseDate | date}}</p>
+    <p>Original Language: {{originalLanguage}}</p>
+
+    <div class="post__plot">
+      <h3>Plot</h3>
+      <hr />
+      <p>{{plot}}</p>
     </div>
-    <div class="controls">
-      <button class="btn">Add</button>
-      <button class="btn">Download</button>
-    </div>
-  </section>
-
-  <hr />
-
-  <section class="card" *ngFor="let todo of todos">
-    <div class="card__under">
-      <span [class.completed]="todo.completed">{{todo.title | titlecase}}</span>
-      <span>
-        <button class="btn btn-danger">Delete</button>
-        <button class="btn" [disabled]="todo.completed">Complete</button>
-      </span>
-    </div>
-  </section>
-
-  <hr />
-
-  <!-- <img [src]="poster" alt="Some picture" /> -->
-</div>
-
-<!-- <hr /> -->
-
-<!-- <app-post-form
-  (onAdd)="updatePostTest($event)"
-></app-post-form>
-
-<app-post
-  *ngFor="let p of postTest"
-  [post]="p"
->
-  <small *ngIf="p.title.length < 5; else long">
-    Title has got really short amount of letters
-  </small>
-  <ng-template #long>
-    <small>
-      Title has normal length
-    </small>
-  </ng-template>
-</app-post> -->
-
-<section class="card">
-  <div class="form-control">
-    <input type="text" placeholder="Find by movie name" [(ngModel)]="searchingValue">
-  </div>
-  <div class="controls">
-    <button class="btn" (click)="search()">Find</button>
-  </div>
+  </article>
 </section>
-
-<div *ngIf="movies !== null">
-  <h3>Title: {{movies.title}}</h3>
-  <p>Description: {{movies.overview}}</p>
-  <p>Average vote: {{movies.voteAverage}}</p>
-  <hr />
-  <img [src]="movies.posterPath" [alt]="movies.title" />
-</div>
+<!-- <app-post></app-post> -->

@@ -1,0 +1,8 @@
+<form class="search-bar">
+  <div class="search-bar__search-field">
+    <label class="search-bar__label" for="search-box">Search for your favorite title</label>
+    <input class="search-bar__input" id="search-box" name="search-box" type="text" placeholder="Input title of film" [(ngModel)]="query" />
+    <p>{{query}}</p>
+  </div>
+  <button class="search-bar__btn" type="button" (click)="startSearch()">Search</button>
+</form>
